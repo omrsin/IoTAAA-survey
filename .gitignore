@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.tex
+!*.md
+!*.bib
+
+# ...even if they are in subdirectories
+!*/
