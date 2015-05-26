@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{abstract}
-  The \emph{Internet of Things} has become one of the favorite buzzwords in the technology field during the last couple of years. The hype caused by the almost uncountable applications for this technology and the enormous business opportunity has outshone the underlying aspects of security that are needed to support it. The pervasive characteristic of the \emph{IoT}, its strong autonomous behavior and the possibility of handling sensible data and operations makes it require a strong security support to operate. Authentication, Authorization and Accounting (\emph{AAA}) support considers some of the security concerns that are needed in order to provide a good quality of service to the subjects and processes that will make use of \emph{IoT} platforms. This work evaluates \emph{} several concrete and available \emph{IoT} platforms regarding \emph{AAA} to provide a understanding on the security aspects of nowadays \emph{IoT}'s implementations.
+  The \emph{Internet of Things} has become one of the favorite buzzwords in the technology field during the last couple of years. The hype caused by the almost uncountable tentative applications for this technology and the enormous business opportunity they represent has outshone the underlying aspects of security that are needed to support it. The pervasive characteristic of the \emph{IoT}, its strong autonomous behavior and the possibility of handling sensible data and operations makes it require a strong security support to operate. Authentication, Authorization and Accounting (\emph{AAA}) support considers some of the security concerns that are needed in order to provide a good quality of service to the subjects and processes that will make use of \emph{IoT} platforms. This work evaluates \emph{} several concrete and available \emph{IoT} platforms regarding \emph{AAA} to provide a understanding on the security aspects of nowadays \emph{IoT}'s implementations.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -33,71 +33,73 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   % Indicates the large scale and the upcoming importance of IoT
   \IEEEPARstart{C}{urrent} technology trends in the the fields of information technology and communication networks have been focusing their attention on the so-called \emph{Internet of Things} ---commonly referred to as \emph{IoT}. The term was first used in 1999 to describe the futuristic idea of autonomous computers that were able to gather information from the real world and take particular actions based on it, without any intervention of a human being \cite{Ashton2009}. Nowadays, the further development of Wireless Sensors and Actuators Networks (WS\&AN), as well as the improvement of mobile computing, enables the necessary infrastructure for sustaining a state where everyday objects would interact between each other in order to take smart decisions without the need of the human physical factor.
 
-  Several technology companies and institutes with renowned international reputation, have stated the the \emph{IoT} represents an important business opportunity. Gartner includes it as one of the top ten technology trends of 2013 \cite{Gartner2012}, while Cisco predicts that the Value at Stake of the \emph{IoT} will be \$14,4 for companies and industries in the next ten years \cite{JosephBradley2013}. The public sector will also be affected; traffic and pollution control, among others, will be enhanced under the concept of smart cities. Moreover, the impact of this technology in our daily lives could represent a major milestone.
+  Several technology companies and institutes with renowned international reputation, have stated that the \emph{IoT} represents an important business opportunity. Gartner includes it as one of the top ten technology trends of 2013 \cite{Gartner2012}, while Cisco predicts that the Value at Stake of the \emph{IoT} will be \$14,4 for companies and industries in the next ten years \cite{JosephBradley2013}. The public sector will also be affected; traffic and pollution control, among others, will be enhanced under the concept of smart cities. Moreover, the impact of this technology in our daily lives could represent a major milestone.
 
   % Introduces the term security and explain briefly AAA. Information security has become one of the new trends
-  The inherent pervasive characteristic of the \emph{IoT}, as well as its lack of user's consent, raises an alarm regarding the security aspects behinds its realization. These networks of thousands or even millions of interconnected autonomous devices will handle a huge amount of sensible data and it is essential that their implementations fulfill certain security requirements in order to avoid unintentional consequences. However, given the heterogeneous nature of the different elements that can conform such networks, interoperability becomes a challenge, hindering the privacy and the security of the infrastructure.
+  The inherent pervasive characteristic of the \emph{IoT}, as well as its lack of user's consent, raises an alarm regarding the security aspects behind its realization. These networks of thousands or even millions of interconnected autonomous devices will handle a huge amount of sensible data and it is essential that their implementations fulfill certain security requirements in order to avoid unintentional consequences. However, given the heterogeneous nature of the different elements that can conform such networks, interoperability becomes a challenge, hindering the privacy and the security of the infrastructure.
 
-  Authentication, authorization and accounting ---also known as \emph{AAA}--- represent three relevant security concerns for access control of resources belonging to a network. Efforts on creating a standardized architecture for \emph{AAA} have been carried out by the \emph{Internet Engineering Task Force} and have been enforced \cite{RFC2903}, \cite{RFC2904} although implementations ---specially in the \emph{IoT} context--- are still far from reaching homogeneity.
+  Authentication, authorization and accounting ---also known as \emph{AAA}--- represent three relevant security concerns for access control to resources belonging to a network. Efforts on creating a standardized architecture for \emph{AAA} have been carried out by the \emph{Internet Engineering Task Force} and have been enforced \cite{RFC2903}, \cite{RFC2904} although implementations ---specially in the \emph{IoT} context--- are still far from reaching homogeneity.
    
   % Explains the motivation of this survey and its approach  
-  In this survey I will carry out an evaluation of three available \emph{IoT} platforms, under different security aspects focusing on \emph{AAA}. The chosen platforms were developed as part of the \emph{Seventh Framework Programme for Research and Technological Development} of the \emph{European Commission} \cite{FP7}. The goal is to indicate if the security concerns were met and up until extent are they being enforced. Additionally, a comparison between the findings is provided. The claims included in this document are based on a theoretical approach, given that not all of the selected subjects offered open access to their source codes nor their usage.
+  In this survey I will carry out an evaluation of three available \emph{IoT} platforms, under different security aspects focusing on \emph{AAA}. The chosen platforms were developed as part of the \emph{Seventh Framework Programme for Research and Technological Development} of the \emph{European Commission} \cite{FP7}. The goal is to indicate if the security concerns were met and determine up until which extent are they being enforced. Additionally, a comparison between the findings is provided. The claims included in this document are based on a theoretical approach, given that not all of the selected case studies offered open access to their source codes nor their usage.
 
   % Outlines the structure of the paper
   This document is structured as follows: Section \uppercase\expandafter{\romannumeral 2} defines the selected security criteria used to evaluate the chosen platforms. Section \uppercase\expandafter{\romannumeral 3} contains the case studies. It is divided into several subsections, each of which explains the goal of a platform and the way the security concerns are dealt within. Section \uppercase\expandafter{\romannumeral 4} summarizes the evaluation of the three subjects. Finally, section \uppercase\expandafter{\romannumeral 5} offers a conclusion for the topic.
 
 \section{Security Requirements}
   % Gives an explanation of security again
-  Information and network security are commonplace in the context of the Internet. Nevertheless, the \emph{IoT} poses several new conditions to the paradigm of networking, e.g. zillions of nodes participating, resource constrained elements, huge loads of data being created. These considerations demand a closer look on the security approach that will be applied.
+  Information and network security are commonplace in the context of the Internet. Nevertheless, the \emph{IoT} poses several new conditions to the paradigm of networking, e.g. zillions of nodes participating, resource-constrained elements, huge loads of data being created. These considerations demand a closer look on the security approach that will be applied.
 
   Based the these underlying differences, Bassi, et al. \cite{Bassi2013} identify the following elements to be protected inside the \emph{IoT}: (1) The physical person; given that critical life-dependent services may be made unavailable, (2) the subject's privacy; being a subject both a person or a device), (3) the communications channel; to ensure, among others, data integrity, (4) leaf devices such as sensors, tags and actuators, (5) intermediary devices (e.g. gateways), (6) back-end services (e.g. data collection, sensor communication), (7) infrastructure services; these provide the required flexibility for end users to take advantage of the benefits of an \emph{IoT} platform, for example, service discovery, and finally (8) global systems; includes the whole \emph{IoT} platform.
 
-  The \emph{Internet of Things Architecture} project (\emph{IoT-A}) \cite{Salinas2013}, states that aspects like \textbf{data integrity} and the \textbf{trustworthiness} of the services providing such information are key points for offering a reliable application. The platform has to offer \textbf{confidentiality} and \textbf{privacy} up to a certain extent to protect the interests of the users. Service \textbf{availability} becomes crucial when the involved functionalities are vital. Furthermore, operations under the context of the \emph{IoT} have to be \textbf{authenticated} in order to ensure many of the properties mentioned above. Additionally, \textbf{non-repudiation} is a desired property to protect against malicious users that deny having performed illegal actions inside the platform. Interesting enough, in order to achieve non-repudiation, user information has to be revealed to a certain extent, leading to a trade-off between privacy and identification.
+  The \emph{Internet of Things Architecture} project (\emph{IoT-A}) \cite{Salinas2013}, states that aspects like \textbf{data integrity} and the \textbf{trustworthiness} of the services providing such information are key points for offering a reliable application. The platform has to offer \textbf{confidentiality} and \textbf{privacy} up to a certain extent to protect the interests of the users. Service \textbf{availability} becomes crucial when the involved functionalities are vital. Furthermore, operations under the context of the \emph{IoT} have to be authenticated in order to ensure many of the properties mentioned above. Additionally, \textbf{non-repudiation} is a desired property when protection against malicious users that deny having performed illegal actions inside the platform is desired. Interesting enough, in order to achieve non-repudiation, user information has to be revealed to a certain extent, leading to a trade-off between privacy and identification.
 
   % Introduces the 4-5 chosen requirements and remark their importance in the context of IoT  
   % Trust as part of the authentication 
   % Confidentiality as part of the authorization
   % Non-repudiation/Identification as part of accountability
   % Privacy in contrast to accountability
-  The chosen security requirements were selected in order to identify on which aspects \emph{AAA} plays a critical role but by no means I imply that the only way to fulfill the following requirements is through \emph{AAA} techniques. (A) \textbf{Trust} was chosen to reflect the need of authentication in an \emph{IoT} platform by ensuring users that the collected data was originated from valid nodes and that the service users are who they say they are. (B) \textbf{Confidentiality} was chosen to denote the need of authorization in order to achieve different layers of protected information. (C) \textbf{Non-repudiation} was chosen to remark the importance of accountability that is commonly neglected, however, (D) \textbf{Privacy} was chosen to contrast the trade-off of accountability and the impact on the end users.
+  The chosen security requirements were selected in order to identify on which aspects \emph{AAA} plays a critical role. Nevertheless, by no means I imply that the only way to fulfill these requirements is through \emph{AAA} techniques. The selected requirements are as follows: (A) \textbf{Trust} was chosen to reflect the need of authentication in an \emph{IoT} platform by ensuring users that the collected data was originated from valid nodes and that the service users are who they say they are. (B) \textbf{Confidentiality} was chosen to denote the need of authorization in order to achieve different layers of protected information. (C) \textbf{Non-repudiation} was chosen to remark the importance of accountability, commonly neglected in non-critical scenarios. On the other hand, (D) \textbf{privacy} was chosen to contrast the trade-off between accountability and the impact on the end users.
 
   % Lists each requirement. Give a definition (maybe also applied in another context -Networks, standalone computing)
   \subsection{Trust \& Authentication}
-  \blindtext
+  A definition of trust that fits the context of the \emph{IoT} is ``the extent to which one party is willing to participate in a given action with a given partner in a given situation, considering the risks and incentives involved'' \cite{Ruohomaa2006}. Trust becomes a fundamental security requirement when considering operations between multiple parties.
+
+  Authentication defines a way to establish trust by verifying and validating the identity of the parties involved in an operation, thus, allowing them to bind. Any authentication process consists of two steps: first, the provision of evidence of authenticity and second, the validation of such a proof \cite{Sklavos2007}. This validation can be done by the other interested party or by a certification agent.
+
+  Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized action (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
 
   \subsection{Confidentiality \& Authorization}
-  \blindtext
+  Confidentiality focuses on preventing undesired elements to obtain or eavesdrop information or to gain access to restricted actions and privileges. The tampering of information flows must be prevented as well.
+
+  Authorization and access control take place after the execution of an authentication protocol. This process determines whether the interested party has the sufficient privileges to perform certain actions. Access control can be achieved through different methods: Access Control List (ACL) which is a simple but not scalable approach, Role Based Access Control (RBAC) which maps roles to users in order to group sets of privileges, Attribute Based Access Control (ABAC) that aims to specify policies and access rules based on the attributes of the users  \cite{Anggorojati2014}. Another approach called Capability-Based Access Control (CBAC), where authorization tokens are generated and given to users, provides a dynamic authorization mechanism.
+
+  Confidentiality can be enforced through access control policies that would protect the information from being accessed by unauthorized subjects. Moreover, confidentiality during the information flow processes is commonly achieved through cryptographic communication, however, elements participating in the \emph{IoT} suffer from different constraints that will prove this methods inefficient \cite{Baldini2012}.    
 
   \subsection{Non-Repudiation \& Accountability}
-  \blindtext
-
+  
   \subsection{Privacy \& Accountability}
-  \blindtext
-
+  
 \section{Case Studies}
-  % TODO Introduce the section
-  % TODO Name the chosen system that will be discussed and maybe explain why were they selected.
+  TODO: Introduce the section
 
-\blindtext
-  % TODO Some diagrams explaining the architecture of the systems might be a good idea in order to convey the general structure of their architectures
+  TODO: Name the chosen systems that will be discussed and explain why were they selected.
+
+  TODO: Include some diagrams explaining the architecture of the systems. It might be a good idea in order to convey the general structure of their architectures
 
   \subsection{OpenIoT}
-  \Blindtext
 
   \subsection{SENSEI}
-  \Blindtext
 
   \subsection{IoT@Work}
-  \Blindtext
 
 \section{Evaluation}
-  % TODO Comment on the different approaches of the projects.
-  % TODO Create a table comparing each property
-\Blindtext
+  TODO: Comment on the different approaches of the projects.
+
+  TODO: Create a table comparing each of the selected security requirements
 
 \section{Conclusion}
-  % TODO contrast the results and indicate why are they different or not, based on how their goal differs (probably)
-\Blindtext
+  TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
 
 \bibliographystyle{IEEEtran}
 \bibliography{surveyBib}
