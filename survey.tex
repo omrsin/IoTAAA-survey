@@ -21,51 +21,57 @@
 
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
 \begin{abstract}
-  This is just what I thought \cite{Bijwaard2011}
+  This is just what I thought.
 
   \blindtext
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Security.
 \end{IEEEkeywords}
 
 \section{Introduction}
-
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8a and later.
-
-I wish you the best of success.
+  % TODO Indicate the large scale and the upcoming importance of IoT
+  \IEEEPARstart{C}{urrent} technology trends in the the fields of information technology and communication networks have been focusing their attention on the so-called \emph{Internet of Things}---commonly referred to as \emph{IoT}. The term was first used in 1999 to describe the futuristic idea of autonomous computers that were able to gather information from the real world and take particular actions based on it, without any intervention of a human being \cite{Ashton2009}.
+% TODO Introduce the term security and explain briefly AAA. Information security has become one of the new trends
+% TODO Explain the motivation of this survey and its approach
+% TODO Outline the structure of the paper
 
 \Blindtext
 
 \section{Requirements}
+  % TODO Give an explanation of security again
+  % TODO Introduce the 4-5 chosen requirements and remark their importance in the context
+  % TODO List each requirement. Give a definition (maybe also applied in another context -Networks, standalone computing)
 \Blindtext
 
 \section{Case Studies}
+  % TODO Introduce the section
+  % TODO Name the chosen system that will be discussed and maybe explain why were they selected.
+
 \blindtext
+  % TODO Some diagrams explaining the architecture of the systems might be a good idea in order to convey the general structure of their architectures
 
-  \subsection{System A}
+  \subsection{OpenIoT}
   \Blindtext
 
-  \subsection{System B}
+  \subsection{SENSEI}
   \Blindtext
 
-  \subsection{System C}
+  \subsection{IoT@Work}
   \Blindtext
 
 \section{Evaluation}
+  % TODO Comment on the different approaches of the projects.
+  % TODO Create a table comparing each property
 \Blindtext
 
 \section{Conclusion}
+  % TODO contrast the results and indicate why are they different or not, based on how their goal differs (probably)
 \Blindtext
 
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv, surveyBib}
+\bibliography{surveyBib}
 
 \end{document}
