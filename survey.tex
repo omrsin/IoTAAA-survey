@@ -67,7 +67,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   Authentication defines a way to establish trust by verifying and validating the identity of the parties involved in an operation, thus, allowing them to bind. Any authentication process consists of two steps: first, the provision of evidence of authenticity and second, the validation of such a proof \cite{Sklavos2007}. This validation can be done by the other interested party or by a certification agent.
 
-  Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized action (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
+  Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to the nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized action (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
 
   \subsection{Confidentiality \& Authorization}
   Confidentiality focuses on preventing undesired elements to obtain or eavesdrop information or to gain access to restricted actions and privileges. The tampering of information flows must be prevented as well.
@@ -76,16 +76,21 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   Confidentiality can be enforced through access control policies that would protect the information from being accessed by unauthorized subjects. Moreover, confidentiality during the information flow processes is commonly achieved through cryptographic communication, however, elements participating in the \emph{IoT} suffer from different constraints that will prove this methods inefficient \cite{Baldini2012}.    
 
-  \subsection{Non-Repudiation \& Accountability}
-  
-  \subsection{Privacy \& Accountability}
+  \subsection{Non-Repudiation, Privacy \& Accountability}
+  Non-repudiation aims to protect the participants of a communication flow from having one of them denying its participation. This property makes sense when the operation on which the participants are involved is critical ---an electronic money transfer is a typical example. A certain degree of disclosure over the identities of the participants is needed in order to provide a service that conforms with non-repudiation. On the other hand, privacy enforces the confidentiality of the data. A participant has the solely right to control the access and use of its own information.
+
+  The balance between these two contradictory properties has been defined as the degree of accountability in a system \cite{Bassi2013}. Accountability, in terms of a network, refers to the capability of collecting information on the usage of resources in a network. The recollection of the usage information depends on the accounting protocols ---data transmitted, time of usage, purpose, etc  \cite{Sklavos2007}. In the context of the \emph{IoT}, accounting can be used for different purposes. One of the most relevant is defining a criteria process for the use of resources \cite{Bauge2010}.
+
+  % Mention Pseudonyms as a way to achieve both privacy and non-repudiation
+  Strict privacy enforcement is conflicting with aspects like authorization, authentication and non-repudiation. Through the use of fictional identities ---sometimes referred to as pseudonyms---, an \emph{IoT} platform can fulfill both non-repudiation and privacy requirements \cite{Baldini2012}. 
   
 \section{Case Studies}
-  TODO: Introduce the section
-
-  TODO: Name the chosen systems that will be discussed and explain why were they selected.
-
-  TODO: Include some diagrams explaining the architecture of the systems. It might be a good idea in order to convey the general structure of their architectures
+  % Introduce the section
+  In this section I will introduce the platforms to be assessed and will summarize their approaches towards the selected security requirements.
+  
+  % Name the chosen systems that will be discussed and explain why were they selected.
+  
+  % TODO: Include some diagrams explaining the architecture of the systems. It might be a good idea in order to convey the general structure of their architectures
 
   \subsection{OpenIoT}
 
@@ -94,12 +99,12 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   \subsection{IoT@Work}
 
 \section{Evaluation}
-  TODO: Comment on the different approaches of the projects.
-
-  TODO: Create a table comparing each of the selected security requirements
+  % TODO: Comment on the different approaches of the projects.
+  % TODO: Create a table comparing each of the selected security requirements
+  % TODO: Consider speaking about Device Authentication as referred in Baldini
 
 \section{Conclusion}
-  TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
+  % TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
 
 \bibliographystyle{IEEEtran}
 \bibliography{surveyBib}
