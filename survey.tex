@@ -54,14 +54,11 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   The \emph{Internet of Things Architecture} project (\emph{IoT-A}) \cite{Salinas2013}, states that aspects like \textbf{data integrity} and the \textbf{trustworthiness} of the services providing such information are key points for offering a reliable application. The platform has to offer \textbf{confidentiality} and \textbf{privacy} up to a certain extent to protect the interests of the users. Service \textbf{availability} becomes crucial when the involved functionalities are vital. Furthermore, operations under the context of the \emph{IoT} have to be authenticated in order to ensure many of the properties mentioned above. Additionally, \textbf{non-repudiation} is a desired property when protection against malicious users that deny having performed illegal actions inside the platform is desired. Interesting enough, in order to achieve non-repudiation, user information has to be revealed to a certain extent, leading to a trade-off between privacy and identification.
 
-  % Introduces the 4-5 chosen requirements and remark their importance in the context of IoT  
-  % Trust as part of the authentication 
-  % Confidentiality as part of the authorization
-  % Non-repudiation/Identification as part of accountability
-  % Privacy in contrast to accountability
+  % Introduces the 4-5 chosen requirements and remark their importance in the context of IoT 
   The chosen security requirements were selected in order to identify on which aspects \emph{AAA} plays a critical role. Nevertheless, by no means I imply that the only way to fulfill these requirements is through \emph{AAA} techniques. The selected requirements are as follows: (A) \textbf{Trust} was chosen to reflect the need of authentication in an \emph{IoT} platform by ensuring users that the collected data was originated from valid nodes and that the service users are who they say they are. (B) \textbf{Confidentiality} was chosen to denote the need of authorization in order to achieve different layers of protected information. (C) \textbf{Non-repudiation} was chosen to remark the importance of accountability, commonly neglected in non-critical scenarios. On the other hand, (D) \textbf{privacy} was chosen to contrast the trade-off between accountability and the impact on the end users.
 
-  % Lists each requirement. Give a definition (maybe also applied in another context -Networks, standalone computing)
+  % Lists each requirement. Give a general definition and explain how they relate to the IoT
+  % Trust as part of the authentication 
   \subsection{Trust \& Authentication}
   A definition of trust that fits the context of the \emph{IoT} is ``the extent to which one party is willing to participate in a given action with a given partner in a given situation, considering the risks and incentives involved'' \cite{Ruohomaa2006}. Trust becomes a fundamental security requirement when considering operations between multiple parties.
 
@@ -69,6 +66,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to the nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized action (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
 
+  % Confidentiality as part of the authorization
   \subsection{Confidentiality \& Authorization}
   Confidentiality focuses on preventing undesired elements to obtain or eavesdrop information or to gain access to restricted actions and privileges. The tampering of information flows must be prevented as well.
 
@@ -76,6 +74,8 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   Confidentiality can be enforced through access control policies that would protect the information from being accessed by unauthorized subjects. Moreover, confidentiality during the information flow processes is commonly achieved through cryptographic communication, however, elements participating in the \emph{IoT} suffer from different constraints that will prove this methods inefficient \cite{Baldini2012}.    
 
+  % Non-repudiation/Identification as part of accountability
+  % Privacy in contrast to accountability
   \subsection{Non-Repudiation, Privacy \& Accountability}
   Non-repudiation aims to protect the participants of a communication flow from having one of them denying its participation. This property makes sense when the operation on which the participants are involved is critical ---an electronic money transfer is a typical example. A certain degree of disclosure over the identities of the participants is needed in order to provide a service that conforms with non-repudiation. On the other hand, privacy enforces the confidentiality of the data. A participant has the solely right to control the access and use of its own information.
 
@@ -86,13 +86,21 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   
 \section{Case Studies}
   % Introduce the section
-  In this section I will introduce the platforms to be assessed and will summarize their approaches towards the selected security requirements.
-  
-  % Name the chosen systems that will be discussed and explain why were they selected.
-  
-  % TODO: Include some diagrams explaining the architecture of the systems. It might be a good idea in order to convey the general structure of their architectures
+  In this section I will introduce the three platforms to be assessed and will summarize their approaches towards the selected security requirements.
+
+  % Name the chosen systems that will be discussed and explain why were they selected
+  The chosen platforms were developed with the support of the \emph{Seventh Framework Programme for Research and Technological Development} of the \emph{European Commission} under the activity area of information and communication technologies \cite{FP7}\cite{FP7-ICT}\cite{ICT}. The documentation requirements for each platform were framed under the specifications indicated by the program.
+
+  Although the three platforms engage on the idea of the \emph{IoT}, they have different goals. The selected platforms are: \textbf{OpenIoT} \cite{OpenIoT}, \textbf{SENSEI} \cite{SENSEI} and \textbf{IoT@Work} \cite{IoTWork}.
 
   \subsection{OpenIoT}
+  The \emph{OpenIoT} platform consists of an open-source middleware under the LGPL 3.0 license that aims to provide services from sensor clouds encapsulating the exact sensors that are being used. This abstraction allows the dynamic integration of new services for collecting and providing information streams. The generated information is managed in a cloud-based approach that they named ``Sensing-as-a-Service'' \cite{Baldini2012}.  The framework masks the underlying semantical discrepancies ensuring interoperability in the technological stack and serving as a central coordinator in the exchange of data.
+
+  Authentication and authorization in \emph{OpenIoT} is offered at the service level. This means that a user interested in collecting the data provided by a service is needed to be authenticated and authorized in order to access it. They achieve this by centralizing the process in Central Access Server (CAS) using a token-based approach with OAuth2.0. 
+
+  New services are added to the platform using a security console bundled with the software. An administrator is able to define permissions and roles over user and services to restrict the access. Clients accessing the services can authenticate themselves via a web-interface or using web-services connecting to the CAS.
+
+  To achieve the accounting process, the platform keeps track of several utility metrics on physical sensors, sensor networks and services. Aspects like energy consumption, bandwidth, data volume and trustworthiness are being measured on the physical sensors while in the case of services and sensor networks, aspects like the system lifetime, delays, bandwidth capacity, reliability and even confidentiality are evaluated. The gathering of this information is associated to a user of an \emph{OpenIoT} application. All this information is used to define the billing functionality \cite{Calbimonte}.
 
   \subsection{SENSEI}
 
