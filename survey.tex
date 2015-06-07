@@ -94,7 +94,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   Although the three platforms engage on the idea of the \emph{IoT}, they have different goals. The selected platforms are: \textbf{OpenIoT} \cite{OpenIoT}, \textbf{SENSEI} \cite{SENSEI} and \textbf{IoT@Work} \cite{IoTWork}.
 
   \subsection{OpenIoT}
-  The \emph{OpenIoT} platform consists of an open-source middleware under the LGPL 3.0 license that aims to provide services from sensor clouds encapsulating the exact sensors that are being used. This abstraction allows the dynamic integration of new services for collecting and providing information streams. The generated information is managed in a cloud-based approach that they named ``Sensing-as-a-Service'' \cite{Baldini2012}.  The framework masks the underlying semantical discrepancies ensuring interoperability in the technological stack and serving as a central coordinator in the exchange of data.
+  The \emph{OpenIoT} platform \cite{OpenIoTWeb} consists of an open-source middleware under the LGPL 3.0 license that aims to provide services from sensor clouds encapsulating the exact sensors that are being used. This abstraction allows the dynamic integration of new services for collecting and providing information streams. The generated information is managed in a cloud-based approach that they named ``Sensing-as-a-Service'' \cite{Baldini2012}.  The framework masks the underlying semantical discrepancies ensuring interoperability in the technological stack and serving as a central coordinator in the exchange of data.
 
   Authentication and authorization in \emph{OpenIoT} is offered at the service level. This means that a user interested in collecting the data provided by a service is needed to be authenticated and authorized in order to access it. They achieve this by centralizing the process in Central Access Server (CAS) using a token-based approach with OAuth2.0. 
 
@@ -103,6 +103,17 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   To achieve the accounting process, the platform keeps track of several utility metrics on physical sensors, sensor networks and services. Aspects like energy consumption, bandwidth, data volume and trustworthiness are being measured on the physical sensors while in the case of services and sensor networks, aspects like the system lifetime, delays, bandwidth capacity, reliability and even confidentiality are evaluated. The gathering of this information is associated to a user of an \emph{OpenIoT} application. All this information is used to define the billing functionality \cite{Calbimonte}.
 
   \subsection{SENSEI}
+  The SENSEI project \cite{SENSEIWeb} started in 2008 with the goal of integrating heterogeneous wireless sensors and actuators networks into a single, scalable and open framework that could withstand the demands of global businesses. The project finished on late 2010 with the deployment of the framework on a real use case that served as a field test.
+  
+  In general terms, SENSEI architecture is divided in three layers: the application layer, the resource layer and the communication services layer \cite{Tsiatsis2010}. The application layer offers the necessary abstractions to allow end-business applications to access information streams and interaction functionality on real world entities via interfaces of the resource layer. The communication services layer abstracts all the underlying network issues allowing flexibility and adaptability for new technologies at that level. Finally, the resource layer manages the core functionality of the framework. 
+
+  The resource layer is in charge of maintaining the discovery processes of the of real world entities; these entities are mapped to logical concepts named `resources' which encapsulate the physical properties of the devices. A resource can provide sensing and actuation behavior among others. A resource user communicates to a resource via a resource end point; a software that implements the required interfaces to interact with the resource. These resource end points are uniquely addressed inside a deployment and can be found through the discovery services. The abstraction resulting from this layer allows the coordination of mobility services in an flexible fashion \cite{Tsiatsis2010}. 
+  
+  SENSEI specifies an AAA framework tuned to the needs of wireless sensor networks, where resource-constrained nodes are common and short lived connections mandate. Its scope is to mutually authenticate parties within SENSEI, authorize the actions that they are allowed to do and keep track of this actions in order to be able to process payments for them. This framework relies on the concepts of tokens and policies to achieve its purposes in a secure manner \cite{Bauge2010}.
+
+  Users require an account in the AAA framework in order to be able to access its services. After creating an account, a user can obtain security tokens that carry the necessary assertions to determine aspects such as account validity, role validation and user's identity. Policies allow making decisions based on the credentials of the users.
+
+  % TODO: Describe some of the AAA protocols
 
   \subsection{IoT@Work}
 
@@ -110,6 +121,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   % TODO: Comment on the different approaches of the projects.
   % TODO: Create a table comparing each of the selected security requirements
   % TODO: Consider speaking about Device Authentication as referred in Baldini
+  % TODO: Comment about the advantage of open source approach in OpenIoT for extending services compared to SENSEI
 
 \section{Conclusion}
   % TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
@@ -117,4 +129,4 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 \bibliographystyle{IEEEtran}
 \bibliography{surveyBib}
 
-\end{document}
+\end{document}/
