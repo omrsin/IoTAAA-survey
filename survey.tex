@@ -3,6 +3,7 @@
 % TODO: Remove after adding lorem ipsums
 \usepackage[english]{babel}
 \usepackage{blindtext}
+\usepackage{tabu}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -131,13 +132,29 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
 \section{Evaluation}
   % TODO: Comment on the different approaches of the projects.
+  This is just a phase.
   % TODO: Create a table comparing each of the selected security requirements
+  \begin{table}[!t]    
+    \renewcommand{\arraystretch}{1.3}    
+    \caption{An Example of a Table}
+    \label{evaluation_table}        
+    \begin{tabu} to \columnwidth {X[0.6,l]X[0.5,c]X[,c]X[,c]X[0.3,c]}
+      \hline      
+                   & Trust      & Confidentiality & Non-Repudiation & Privacy \\
+      \hline
+      OpenIoT      & High       & Yes             & Yes             & No      \\
+      SENSEI       & High       & Yes             & Yes             & Yes     \\
+      IoT@Work     & High/Low   & Yes             & N/A             & N/A     \\ 
+      \hline      
+    \end{tabu}
+  \end{table}
   % TODO: Consider speaking about Device Authentication as referred in Baldini
-  % TODO: Comment about the advantage of open source approach in OpenIoT for extending services compared to SENSEI
+  
 
 \section{Conclusion}
   % TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
   % TODO: Comment about how different requirements, specially on a big scale demand different AAA and security approaches.
+  % TODO: Comment about the advantage of open source approach in OpenIoT for extending services compared to SENSEI
 
 \bibliographystyle{IEEEtran}
 \bibliography{surveyBib}
