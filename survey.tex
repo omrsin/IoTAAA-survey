@@ -4,6 +4,8 @@
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \usepackage{tabu}
+\usepackage{hyperref}
+\usepackage{threeparttable}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -47,7 +49,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   % Outlines the structure of the paper
   This document is structured as follows: Section \uppercase\expandafter{\romannumeral 2} defines the selected security criteria used to evaluate the chosen platforms. Section \uppercase\expandafter{\romannumeral 3} contains the case studies. It is divided into several subsections, each of which explains the goal of a platform and the way the security concerns are dealt within. Section \uppercase\expandafter{\romannumeral 4} summarizes the evaluation of the three subjects. Finally, section \uppercase\expandafter{\romannumeral 5} offers a conclusion for the topic.
 
-\section{Security Requirements}
+\section{Security Requirements} \label{sec_security_requirements}
   % Gives an explanation of security again
   Information and network security are commonplace in the context of the Internet. Nevertheless, the \emph{IoT} poses several new conditions to the paradigm of networking, e.g. zillions of nodes participating, resource-constrained elements, huge loads of data being created. These considerations demand a closer look on the security approach that will be applied.
 
@@ -65,22 +67,22 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   Authentication defines a way to establish trust by verifying and validating the identity of the parties involved in an operation, thus, allowing them to bind. Any authentication process consists of two steps: first, the provision of evidence of authenticity and second, the validation of such a proof \cite{Sklavos2007}. This validation can be done by the other interested party or by a certification agent.
 
-  Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to the nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized action (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
+  Achieving trust in an \emph{IoT} platform requires overcoming a set of challenges related to the nature of the elements that conforms it. Information captured by leaf devices has to be accessed only by trustworthy services behind authenticated users; a breach in this regard may compromise private information or allow the execution of unauthorized actions (e.g. tampering with health care devices). On the other hand, the platform has to be able to trust the information provided by the sensor networks ---hence the networks themselves---, resulting this in a challenge when dealing with the identities of the subjects \cite{Kanuparthi2013}. Resource-constrained elements should be able to perform security operations that enable them to authenticate without overwhelming their capacity. 
 
   % Confidentiality as part of the authorization
   \subsection{Confidentiality \& Authorization}
-  Confidentiality focuses on preventing undesired elements to obtain or eavesdrop information or to gain access to restricted actions and privileges. The tampering of information flows must be prevented as well.
+  Confidentiality focuses on preventing undesired elements to eavesdrop communications, to tamper information flows and to gain unauthorized access to restricted actions and privileges.
 
   Authorization and access control take place after the execution of an authentication protocol. This process determines whether the interested party has the sufficient privileges to perform certain actions. Access control can be achieved through different methods: Access Control List (ACL) which is a simple but not scalable approach, Role Based Access Control (RBAC) which maps roles to users in order to group sets of privileges, Attribute Based Access Control (ABAC) that aims to specify policies and access rules based on the attributes of the users  \cite{Anggorojati2014}. Another approach called Capability-Based Access Control (CBAC), where authorization tokens are generated and given to users, provides a dynamic authorization mechanism.
 
-  Confidentiality can be enforced through access control policies that would protect the information from being accessed by unauthorized subjects. Moreover, confidentiality during the information flow processes is commonly achieved through cryptographic communication, however, elements participating in the \emph{IoT} suffer from different constraints that will prove this methods inefficient \cite{Baldini2012}.    
+  Confidentiality can be enforced through access control policies that would protect the information from being accessed by unauthorized subjects. Moreover, confidentiality during the information flow processes is commonly achieved through cryptographic communication, however, elements participating in the \emph{IoT} suffer from different constraints that will prove these methods inefficient \cite{Baldini2012}.    
 
   % Non-repudiation/Identification as part of accountability
   % Privacy in contrast to accountability
   \subsection{Non-Repudiation, Privacy \& Accountability}
   Non-repudiation aims to protect the participants of a communication flow from having one of them denying its participation. This property makes sense when the operation on which the participants are involved is critical ---an electronic money transfer is a typical example. A certain degree of disclosure over the identities of the participants is needed in order to provide a service that conforms with non-repudiation. On the other hand, privacy enforces the confidentiality of the data. A participant has the solely right to control the access and use of its own information.
 
-  The balance between these two contradictory properties has been defined as the degree of accountability in a system \cite{Bassi2013}. Accountability, in terms of a network, refers to the capability of collecting information on the usage of resources in a network. The recollection of the usage information depends on the accounting protocols ---data transmitted, time of usage, purpose, etc  \cite{Sklavos2007}. In the context of the \emph{IoT}, accounting can be used for different purposes. One of the most relevant is defining a criteria process for the use of resources \cite{Bauge2010}.
+  The balance between these two contradictory properties has been defined as the degree of accountability in a system \cite{Bassi2013}. Accountability, in terms of a network, refers to the capability of collecting information on the usage of resources. The recollection of the usage information depends on the accounting protocols ---data transmitted, time of usage, purpose, etc  \cite{Sklavos2007}. In the context of the \emph{IoT}, accounting can be used for different purposes. One of the most relevant is defining a criteria for the use of resources \cite{Bauge2010}.
 
   Strict privacy enforcement is conflicting with aspects like authorization, authentication and non-repudiation. Through the use of fictional identities ---sometimes referred to as pseudonyms---, an \emph{IoT} platform can fulfill both non-repudiation and privacy requirements \cite{Baldini2012}. 
   
@@ -122,7 +124,7 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
 
   The architecture is conformed by a combination of layers and planes. Layers make a functional separation of responsibilities while planes offer transversal services to all of the layers indistinctly. Three layers are defined: the \emph{device and network embedded services layer} in charge of device semantics and communication interfaces, the \emph{device resource creation \& management service} layer in charge of abstracting the device and network as well as providing the directory service, and the \emph{application level middleware services} layer in charge of composing, adapting and communicating the information to the applications. Three planes are defined as well, these are: the \emph{communication plane} in charge of managing the network aspects of several applications, the \emph{security plane} responsible of adding different security mechanism in the layers and the \emph{management plane} allowing service management on top of the existing infrastructure \cite{Rotondi2013}.
 
-  Whenever a new device is incorporated to the system, an IPv6 address is assigned to it and afterwards, the directory service gets updated automatically with the means necessary to locate the given device. If such a device is capable of providing information, its information flow can be registered into a middleware component, called \emph{event notification system} or ENS, that interconnects event sources and consumers. 
+  Whenever a new device is incorporated to the system, an IPv6 address is assigned to it and afterwards, the directory service gets updated automatically with the means necessary to locate the given device. If such a device is capable of providing information, its information flow can be registered into a middleware component, called \emph{Event Notification System} or ENS, that interconnects event sources and consumers. 
 
   In the ENS, the resources produced by a device are arranged in hierarchical namespaces, with capability restrictions, that allow the organization of information flows for several purposes, for example, calculation of complex events resulting from multiple sources and association with physical entities such as assembly line robots \cite{Trsek2013}.
 
@@ -131,30 +133,54 @@ AAA, IoT, Internet of Things, Authentication, Authorization, Accounting, Securit
   The tokens are common for a certain namespace and are requested by the high level services. They can be represented using an XML format that will be signed with an X.509 certificate by the ENS. Authentication at the network level can be achieved via secure ids associated to each device in combination with a protocol like EAP.
 
 \section{Evaluation}
-  % TODO: Comment on the different approaches of the projects.
-  This is just a phase.
-  % TODO: Create a table comparing each of the selected security requirements
-  \begin{table}[!t]    
-    \renewcommand{\arraystretch}{1.3}    
-    \caption{An Example of a Table}
-    \label{evaluation_table}        
-    \begin{tabu} to \columnwidth {X[0.6,l]X[0.5,c]X[,c]X[,c]X[0.3,c]}
-      \hline      
-                   & Trust      & Confidentiality & Non-Repudiation & Privacy \\
-      \hline
-      OpenIoT      & High       & Yes             & Yes             & No      \\
-      SENSEI       & High       & Yes             & Yes             & Yes     \\
-      IoT@Work     & High/Low   & Yes             & N/A             & N/A     \\ 
-      \hline      
-    \end{tabu}
-  \end{table}
-  % TODO: Consider speaking about Device Authentication as referred in Baldini
   
+  % Create a table comparing each of the selected security requirements
+  \begin{table}[!t]
+    \begin{threeparttable}
+      \renewcommand{\arraystretch}{1.3}    
+      \caption{Addressing of the Requirements by the Chosen Platforms}
+      \label{evaluation_table}        
+      \begin{tabular} {
+                        p{1cm}
+                        >{\centering\arraybackslash}p{1.3cm}
+                        >{\centering\arraybackslash}p{1.5cm}
+                        >{\centering\arraybackslash}p{2cm}
+                        >{\centering\arraybackslash}p{1cm}
+                      }
+        \hline      
+                     & Trust \tnote{*}      & Confidentiality & Non-Repudiation & Privacy \\
+        \hline
+        OpenIoT      & High       & Yes             & Yes             & No      \\
+        SENSEI       & High       & Yes             & Yes             & Yes     \\
+        IoT@Work     & High/Low   & Yes             & N/A             & N/A     \\ 
+        \hline      
+      \end{tabular}
+      \begin{tablenotes}
+      \item[*] High represents higher levels such as services while Low represents lower levels such as devices and networks.
+      \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  In this section I will evaluate the selected platforms under the security requirements explained in section \ref{sec_security_requirements}. Table \ref{evaluation_table} summarizes the analysis, offering a comparative view on the addressed requirements. 
+  
+  % Comment on the different approaches of the projects.
+  All the platforms address trust by implementing authentication mechanisms to ensure valid access to the services provided. However, \emph{IoT@Work} is the only one among the selected platforms that specifies authentication mechanisms in lower layers in order to define trustworthy devices; the rest of the platforms do not address these low level concerns directly, instead, as specified by \emph{SENSEI} \cite{Bauge2010}, they rely on state-of-the-art technology to achieve this goal.
+
+  Confidentiality is commonplace among the platforms. The preferred method for establishing authorization mechanisms relies on the use of security tokens combined with usage policies, in the fashion of capability-based access control. Security tokens are encrypted by the emitting entities which prevents tampering access rights. Moreover, \emph{OpenIoT} and \emph{IoT@Work} depend on a single access control point to generate the necessary tokens while \emph{SENSEI} allows the authorization mechanism to work between different \emph{SENSEI} framework providers by requesting tokens in a secure manner on each implementation.
+
+  General encryption of communication flows is not explicitly addressed in way beyond the current state of the technology. \emph{OpenIoT} indicates that collecting sensor data should be achieved via IPsec and SSL on remote entities \cite{Dimitropoulus2012}, however, this is not always feasible because not all devices are capable of executing encryption operations.
+
+  The non-repudiation and privacy requirements are the ones that display the most different approach among the chosen platforms. In the case of \emph{OpenIoT}, an exhaustive set of indicators are registered relating the usage of resources to the end-users, disclosing full traceability of actions to platform providers, hence hindering privacy. On the other hand, \emph{SENSEI} achieves a similar purpose regarding the accounted information but it masks the identities of the users to the interconnected platforms through the use of multiple identities, sharing the information only with the interested parties. On the contrary, \emph{IoT@Work} does not address non-repudiation for all its operations, instead they state that traceability of actions should be kept whenever remote maintenance interactions are carried out by external authorized groups \cite{Huth2010}.
+  
+  The different scopes in privacy adopted by the chosen platforms are a consequence of their goal as \emph{IoT} enabling technologies. Big scale \emph{IoT} platforms like \emph{OpenIoT} and \emph{SENSEI}, that aim to connect millions of devices,  enforce a strong non-repudiation approach because their business model depends on the capacity to account for actions in their systems. Platforms with a closed scope, like \emph{IoT@work}, that have a concrete goal inside a controlled environment depend less on strong non-repudiation policies unless external or critical activities need to be accounted. In general terms, accountability makes sense only when liability is required.  
 
 \section{Conclusion}
+  \blindtext
+  \blindtext
   % TODO: contrast the results and indicate why are they different or not, based on how their goals differ (probably)
   % TODO: Comment about how different requirements, specially on a big scale demand different AAA and security approaches.
   % TODO: Comment about the advantage of open source approach in OpenIoT for extending services compared to SENSEI
+  % TODO: Mention that accountability makes sense when there is a contract between the parties
 
 \bibliographystyle{IEEEtran}
 \bibliography{surveyBib}
